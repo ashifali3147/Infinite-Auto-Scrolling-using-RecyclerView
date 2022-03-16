@@ -1,68 +1,116 @@
 package com.example.gridview;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-
-import java.util.ArrayList;
+import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    RCVAdapter rcvAdapter;
-    CountDownTimer timer;
-    int i,j = 0;
-    ArrayList<Integer> images;
-    ArrayList<String> foodNames;
+    HomeScreen homeScreen;
+    OrderScreen orderScreen;
+    MenuScreen menuScreen;
+    UserScreen userScreen;
+    boolean isClick;
+    ImageView tab_home, tab_menu, tab_order, tab_user, test_anim;
+    Animation bounce, move, move_rev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        images = new ArrayList<Integer>();
-        foodNames = new ArrayList<>();
-        images.add(R.drawable.food_1); foodNames.add("Food 1");
-        images.add(R.drawable.food_2); foodNames.add("Food 2");
-        images.add(R.drawable.food_3); foodNames.add("Food 3");
-        images.add(R.drawable.food_4); foodNames.add("Food 4");
-        images.add(R.drawable.food_5); foodNames.add("Food 5");
-        images.add(R.drawable.chicken); foodNames.add("Food 6");
+        tab_home = (ImageView) findViewById(R.id.tab_home);
+        tab_menu = (ImageView) findViewById(R.id.tab_menu);
+        tab_order = (ImageView) findViewById(R.id.tab_order);
+        tab_user = (ImageView) findViewById(R.id.tab_user);
+        test_anim = (ImageView) findViewById(R.id.test_anim);
+        bounce = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        move = AnimationUtils.loadAnimation(this, R.anim.move);
+        move_rev = AnimationUtils.loadAnimation(this, R.anim.move_rev);
 
+        homeScreen = new HomeScreen(this);
+        orderScreen = new OrderScreen(this);
+        menuScreen = new MenuScreen(this);
+        userScreen = new UserScreen(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        rcvAdapter = new RCVAdapter(MainActivity.this, images, foodNames);
-        recyclerView.setAdapter(rcvAdapter);
+        test_anim.setOnClickListener(view -> {
 
-        timer = new CountDownTimer(Long.MAX_VALUE, 1500) {
-            @Override
-            public void onTick(long l) {
-//                if(i < rcvAdapter.getItemCount()){
-//                    recyclerView.smoothScrollToPosition(i);
-////                    recyclerView.scrollToPosition(i);
-//                    i++;
-//
-//                }
-//                else if(i == rcvAdapter.getItemCount()){
-//                    recyclerView.smoothScrollToPosition(rcvAdapter.getItemCount() - j);
-//                    j++;
-//                    if(j == rcvAdapter.getItemCount()){
-//                        i = 0;
-//                        j = 0;
-//                    }
-//                }
-                recyclerView.smoothScrollToPosition(i);
-                i++;
+            test_anim.startAnimation(move_rev);
+
+            Log.e("Boolean", "isClick " +isClick);
+            if (isClick){
+                Log.e("Boolean-if", "isClick " +isClick);
+                test_anim.startAnimation(move_rev);
+                isClick = false;
+            }
+            else{
+                Log.e("Boolean-else", "isClick " +isClick);
+                test_anim.startAnimation(move);
+                isClick = true;
             }
 
-            @Override
-            public void onFinish() {
+
+        });
+        setFragment(homeScreen);
+        tab_home.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+            setFragment(homeScreen);
+            setBackgroundForAll();
+            tab_home.setBackgroundColor(Color.parseColor("#57DAD7D7"));
+            tab_home.startAnimation(bounce);
+        });
+        tab_menu.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(), "Menu", Toast.LENGTH_SHORT).show();
+            setFragment(menuScreen);
+            setBackgroundForAll();
+            tab_menu.setBackgroundColor(Color.parseColor("#57DAD7D7"));
+            tab_menu.startAnimation(bounce);
+        });
+        tab_order.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(), "Order", Toast.LENGTH_SHORT).show();
+            setFragment(orderScreen);
+            setBackgroundForAll();
+            tab_order.setBackgroundColor(Color.parseColor("#57DAD7D7"));
+            tab_order.startAnimation(bounce);
+        });
+        tab_user.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(), "User", Toast.LENGTH_SHORT).show();
+            setFragment(userScreen);
+            setBackgroundForAll();
+            tab_user.setBackgroundColor(Color.parseColor("#57DAD7D7"));
+            tab_user.startAnimation(bounce);
+
+        });
+    }
+
+    public void setFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.left_to_right, R.anim.right_to_left);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(R.id.frame_home, fragment);
+        fragmentTransaction.commit();
 
 
-            }
-        }.start();
+
+//        fragmentTransaction.commit();
+//        fragmentTransaction.replace()
+
+        tab_home.setBackgroundColor(Color.parseColor("#57DAD7D7"));
+    }
+
+    public void setBackgroundForAll(){
+        tab_home.setBackgroundColor(Color.WHITE);
+        tab_menu.setBackgroundColor(Color.WHITE);
+        tab_order.setBackgroundColor(Color.WHITE);
+        tab_user.setBackgroundColor(Color.WHITE);
     }
 }
 
@@ -73,4 +121,13 @@ public class MainActivity extends AppCompatActivity {
 1. Study Booklet- Multiple Sending documentation.
 2. Learn about AWS Codecommit for git.
 3. Implement Auto-Scroll recyclerview.
+ */
+
+/*/
+
+[Today Work]
+
+1. Create Custom Tab View using Fragment.
+2. Explore different types of button click custom animation.
+3. Try some page changing animation.
  */
