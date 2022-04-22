@@ -12,6 +12,11 @@
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_menu"
+        android:layout_below="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     </RelativeLayout>
 
 </FrameLayout>

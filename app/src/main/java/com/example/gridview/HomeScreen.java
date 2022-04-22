@@ -24,6 +24,8 @@ public class HomeScreen extends Fragment {
     int i,j = 0;
     ArrayList<Integer> images;
     ArrayList<String> foodNames;
+    RecyclerView recyclerView_menu;
+    HomeScreenMenuAdapter homeScreenMenuAdapter;
 
     public HomeScreen(Context context){
         this.context = context;
@@ -47,6 +49,11 @@ public class HomeScreen extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         rcvAdapter = new RCVAdapter(context, images, foodNames);
         recyclerView.setAdapter(rcvAdapter);
+
+        recyclerView_menu = view.findViewById(R.id.rv_menu);
+        recyclerView_menu.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        homeScreenMenuAdapter = new HomeScreenMenuAdapter(getActivity());
+        recyclerView_menu.setAdapter(homeScreenMenuAdapter);
 
         timer = new CountDownTimer(Long.MAX_VALUE, 1500) {
             @Override

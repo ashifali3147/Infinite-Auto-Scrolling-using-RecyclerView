@@ -3,16 +3,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UserScreen">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="User Page" />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/food_3"/>
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="User Page" />
+
+        <ImageView
+            android:id="@+id/img_food"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/food_3" />
+        <pl.droidsonroids.gif.GifImageButton
+            android:id="@+id/gif_loader"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/img_food"
+            android:visibility="gone"
+            android:src="@drawable/custom_loader_gif"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lt_loader"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/gif_loader"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:visibility="gone"
+            app:lottie_rawRes="@raw/lottie_done" />
+
+        <Button
+            android:id="@+id/dialog_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lt_loader"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Lottie" />
+
+        <Button
+            android:id="@+id/reward_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Reward" />
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/btn_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/reward_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Circular Button"
+            android:textColor="@color/white"/>
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressImageButton
+            android:id="@+id/btn_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/user_button"
+            android:background="@color/trans"
+            android:layout_below="@id/btn_stop"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_id"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Stop" />
+    </RelativeLayout>
+
 
 </FrameLayout>

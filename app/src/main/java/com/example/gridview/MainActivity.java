@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     MenuScreen menuScreen;
     UserScreen userScreen;
     boolean isClick;
-    ImageView tab_home, tab_menu, tab_order, tab_user, test_anim;
-    Animation bounce, move, move_rev;
+    ImageView tab_home, tab_menu, tab_order, tab_user, test_anim, loader;
+    Animation bounce, bubble, move, move_rev, rotate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +32,24 @@ public class MainActivity extends AppCompatActivity {
         tab_order = (ImageView) findViewById(R.id.tab_order);
         tab_user = (ImageView) findViewById(R.id.tab_user);
         test_anim = (ImageView) findViewById(R.id.test_anim);
+        loader = (ImageView) findViewById(R.id.loader);
+
         bounce = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        bubble = AnimationUtils.loadAnimation(this, R.anim.bubble);
         move = AnimationUtils.loadAnimation(this, R.anim.move);
         move_rev = AnimationUtils.loadAnimation(this, R.anim.move_rev);
+        rotate = AnimationUtils.loadAnimation(this, R.anim.rotate);
 
         homeScreen = new HomeScreen(this);
         orderScreen = new OrderScreen(this);
         menuScreen = new MenuScreen(this);
         userScreen = new UserScreen(this);
+
+//        loader.startAnimation(rotate);
+        loader.setVisibility(View.GONE);
+        loader.setOnClickListener(view -> {
+            loader.clearAnimation();
+        });
 
         test_anim.setOnClickListener(view -> {
 
@@ -81,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             tab_order.startAnimation(bounce);
         });
         tab_user.setOnClickListener(view -> {
-            Toast.makeText(getApplicationContext(), "User", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "User", Toast.LENGTH_SHORT).show();
             setFragment(userScreen);
             setBackgroundForAll();
             tab_user.setBackgroundColor(Color.parseColor("#57DAD7D7"));
@@ -93,9 +104,9 @@ public class MainActivity extends AppCompatActivity {
     public void setFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.setCustomAnimations(R.anim.left_to_right, R.anim.right_to_left);
-        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
         fragmentTransaction.replace(R.id.frame_home, fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 
 
@@ -115,19 +126,10 @@ public class MainActivity extends AppCompatActivity {
 }
 
 /*/
-
 [Today Work]
 
-1. Study Booklet- Multiple Sending documentation.
-2. Learn about AWS Codecommit for git.
-3. Implement Auto-Scroll recyclerview.
+1. UI discussion with Vivek.
+2. Make changes in Section Menu.
+3. Go through some new android Transition & functions.
  */
 
-/*/
-
-[Today Work]
-
-1. Create Custom Tab View using Fragment.
-2. Explore different types of button click custom animation.
-3. Try some page changing animation.
- */
