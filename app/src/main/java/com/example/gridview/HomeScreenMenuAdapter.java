@@ -18,7 +18,7 @@ public class HomeScreenMenuAdapter extends RecyclerView.Adapter<HomeScreenMenuAd
     @NonNull
     @Override
     public MyviewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_home_screen_menu, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_ui_design, viewGroup, false);
         MyviewHolder myviewHolder = new MyviewHolder(view);
         return myviewHolder;
     }

@@ -169,6 +169,10 @@ public class UserScreen extends Fragment {
 
 /*/
 [Today Work]
+1. Solve timezone problem & push in wl_v6.
+2. Complete coupon reward & push in wl_v6.
+3. Create Doc regarding full animation changes in Android wl_v6 for iOs development & send it to Saqlain da.
+
 1. Confirm, Failed order popup animation work.
 2. Reward popup animation work.
 3. Work on Cancel Order timezone problem.
