@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="200dp"
+    android:layout_width="230dp"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/trans">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp">
+        android:layout_height="260dp"
+        android:layout_marginTop="50dp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="230dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -29,39 +31,189 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/food_name"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_above="@id/food_details"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="3dp"
-                    android:text="Mix Veg Salad"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_above="@id/tv_details"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="1dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/foodItemName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:text="Mix Veg Salad"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/item_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/veg_icon"
+                        android:visibility="visible" />
+                </LinearLayout>
+
 
                 <TextView
-                    android:id="@+id/food_details"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_details"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_above="@id/food_price"
+                    android:layout_above="@id/ll_pp"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Fresh &amp; Healthy Salad"
-                    android:textSize="15sp" />
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="12dp"
+                    android:maxLines="2"
+                    android:text="Fresh &amp; Healthy Salad bla bla dajfh lhkgjgj jknkj lknjlknkln lknlkn qeb uadfhauhffadu audfhauf aushfkchbadbuhfahf"
+                    android:textSize="10dp" />
 
-                <TextView
-                    android:id="@+id/food_price"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/ll_pp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:text="₹ 50.00"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/mrp_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:text="₹ 60000.00"
+                            android:textColor="#5A5757"
+                            android:visibility="visible"
+                            android:textSize="10dp" />
+
+                        <TextView
+                            android:id="@+id/final_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹ 5000.00"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/max_qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="Max Qty: 19"
+                    android:textColor="#DF2C2C"
+                    android:textSize="8dp"
+                    android:textStyle="bold"
+                    android:visibility="visible"/>
+                <TextView
+                    android:id="@+id/is_custom"
+                    android:layout_width="77dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:layout_below="@id/ll_pp"
+                    android:text="Customisable"
+                    android:textSize="10dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
+                <RelativeLayout
+                    android:id="@+id/addOrderToCart"
+                    android:layout_width="77dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="14dp">
+
+
+                    <TextView
+                        android:id="@+id/addOrderButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/add_order_button"
+                        android:gravity="center"
+                        android:text="ADD"
+                        android:textAllCaps="false"
+                        android:textColor="@color/green"
+                        android:textSize="12sp"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/addRemoveOrderButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/add_order_button"
+                        android:visibility="visible">
+
+
+                        <ImageView
+                            android:id="@+id/remove_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:src="@drawable/minus"
+                            app:tint="@color/green" />
+
+                        <TextView
+                            android:id="@+id/itemCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@color/green"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/add_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:src="@drawable/ic_add_black_24dp"
+                            app:tint="@color/green" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -69,7 +221,7 @@
     </RelativeLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/food_image"
+        android:id="@+id/item_img"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"

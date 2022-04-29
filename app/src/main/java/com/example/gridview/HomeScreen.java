@@ -54,9 +54,9 @@ public class HomeScreen extends Fragment {
         recyclerView_menu.setAdapter(rcvAdapter);
 
 
-        recyclerView_menu.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
-        homeScreenMenuAdapter = new HomeScreenMenuAdapter(getActivity());
-        recyclerView_menu.setAdapter(homeScreenMenuAdapter);
+//        recyclerView_menu.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+//        homeScreenMenuAdapter = new HomeScreenMenuAdapter(getActivity());
+//        recyclerView_menu.setAdapter(homeScreenMenuAdapter);
         btn_activity = view.findViewById(R.id.btn_activity1);
         btn_otp_activity = view.findViewById(R.id.btn_otp_activity);
         btn_activity.setOnClickListener(view1 -> {
@@ -98,3 +98,12 @@ public class HomeScreen extends Fragment {
         return view;
     }
 }
+
+/*/
+[Today Work]
+1. Complete new Card UI for HomeScreen menu & implement in coffee-to-go.
+2. Add item details in menu items from Admin Dashboards.
+
+1. Merge Login & OTP Activity in NewLoginActivity & push in wl_v6.
+2. Create new dummy UI for menu order.
+ */

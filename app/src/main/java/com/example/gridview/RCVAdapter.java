@@ -30,7 +30,7 @@ public class RCVAdapter extends RecyclerView.Adapter<RCVAdapter.MyViewHolder>{
     @NonNull
     @Override
     public RCVAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.custom_ui_design, (ViewGroup) parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.new_big_product, (ViewGroup) parent, false);
         MyViewHolder vh = new MyViewHolder(view);
         return vh;
 
@@ -91,8 +91,8 @@ public class RCVAdapter extends RecyclerView.Adapter<RCVAdapter.MyViewHolder>{
         TextView tv_grid;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            img_grid = (ImageView) itemView.findViewById(R.id.food_image);
-            tv_grid = (TextView) itemView.findViewById(R.id.food_name);
+            img_grid = (ImageView) itemView.findViewById(R.id.item_img);
+            tv_grid = (TextView) itemView.findViewById(R.id.foodItemName);
         }
     }
 }
