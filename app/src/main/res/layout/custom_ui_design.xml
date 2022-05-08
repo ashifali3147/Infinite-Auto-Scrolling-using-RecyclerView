@@ -59,9 +59,20 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="20dp"
                     android:text="₹ 50.00"
-                    android:textColor="@color/black"
+                    android:textColor="#673AB7"
                     android:textSize="15sp"
                     android:textStyle="bold" />
+                <com.sackcentury.shinebuttonlib.ShineButton
+                    android:id="@+id/like"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="20dp"
+                    app:allow_random_color="true"
+                    app:click_animation_duration="200"
+                    app:siShape="@raw/heart"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
