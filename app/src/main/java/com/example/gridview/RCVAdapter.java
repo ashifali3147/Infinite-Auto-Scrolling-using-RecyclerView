@@ -30,7 +30,7 @@ public class RCVAdapter extends RecyclerView.Adapter<RCVAdapter.MyViewHolder>{
     @NonNull
     @Override
     public RCVAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.new_big_product, (ViewGroup) parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_ui_design, (ViewGroup) parent, false);
         MyViewHolder vh = new MyViewHolder(view);
         return vh;
 
@@ -71,8 +71,8 @@ public class RCVAdapter extends RecyclerView.Adapter<RCVAdapter.MyViewHolder>{
 //            holder.img_grid.setImageResource(images.get((position % foodNames.size())));
 //            Log.e("RCV-Else []", "Index: " +(position % foodNames.size()));
 //        }
-        holder.tv_grid.setText(foodNames.get((position % foodNames.size())));
-        holder.img_grid.setImageResource(images.get((position % foodNames.size())));
+//        holder.tv_grid.setText(foodNames.get((position % foodNames.size())));
+//        holder.img_grid.setImageResource(images.get((position % foodNames.size())));
 
         holder.img_grid.setOnClickListener(view -> {
             Toast.makeText(context, "Item: " +foodNames.get((position % foodNames.size())), Toast.LENGTH_SHORT).show();

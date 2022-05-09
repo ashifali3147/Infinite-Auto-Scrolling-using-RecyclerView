@@ -101,6 +101,12 @@ public class HomeScreen extends Fragment {
 
 /*/
 [Today Work]
+1. Make few changes in order page.
+2. Favourite Item work.
+
+1. Menu Order page work.
+2. Change toolbar logic for Grid view.
+
 1. Complete new Card UI for HomeScreen menu & implement in coffee-to-go.
 2. Add item details in menu items from Admin Dashboards.
 
