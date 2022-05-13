@@ -21,10 +21,10 @@ public class HomeScreenMenuAdapter extends RecyclerView.Adapter<HomeScreenMenuAd
     Context context;
 
 //    boolean isLiked = false;
+    List<Boolean> isLiked = new ArrayList<>();
     public HomeScreenMenuAdapter(Context context) {
         this.context = context;
     }
-    List<Boolean> isLiked = new ArrayList<>();
     @NonNull
     @Override
     public MyviewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -47,7 +47,7 @@ public class HomeScreenMenuAdapter extends RecyclerView.Adapter<HomeScreenMenuAd
             }
             else{
                 isLiked.add(i,true);
-//                myviewHolder.like.setBtnFillColor(Color.parseColor("#673AB7"));
+                myviewHolder.like.setBtnFillColor(Color.parseColor("#673AB7"));
                 Toast.makeText(context, "Like", Toast.LENGTH_SHORT).show();
             }
 
