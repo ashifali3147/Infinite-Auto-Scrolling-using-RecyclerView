@@ -144,3 +144,8 @@ public class MenuScreen extends Fragment {
 2. Work on favourite button animation (library & custom).
 
  */
+
+/*/
+Some new features added
+
+ */
